@@ -1,0 +1,132 @@
+/* Keepsake stationery: scoped to the love-letter section. */
+.letter-layout {
+  position: relative;
+  isolation: isolate;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: 76px;
+  padding: 72px 70px;
+  border: 1px solid #d8baaa;
+  background: radial-gradient(ellipse at 86% 40%, #e7b4aa65, transparent 64%),
+    linear-gradient(115deg, #fffaf04d, #f4e8de50);
+}
+.letter-layout::before,
+.letter-layout::after {
+  content: '✧';
+  position: absolute;
+  color: #b28473;
+  background: var(--paper);
+  font-size: 30px;
+  line-height: 1;
+  padding: 3px;
+  pointer-events: none;
+}
+.letter-layout::before { top: -18px; left: -18px; }
+.letter-layout::after { bottom: -18px; right: -18px; }
+.letter-intro h2 { font-size: clamp(58px, 6.4vw, 98px); line-height: .99; letter-spacing: -3px; }
+.letter-intro h2 em { display: inline-block; font-size: 1.25em; line-height: 1.18; margin: 4px 0 0 -4px; letter-spacing: -1px; }
+.letter-intro > p { font-size: 23px; letter-spacing: .45px; line-height: 1.5; margin-top: 25px; }
+.letter-flourish { display: flex; align-items: center; gap: 12px; max-width: 360px; margin-top: 34px; color: var(--rose); }
+.letter-flourish span { flex: 1; height: 1px; background: #c79c8e; }
+.letter-flourish .icon { width: 28px; height: 28px; stroke-width: 1; }
+.letter-intro > .letter-caption { font-size: 32px; line-height: 1.25; letter-spacing: 0; margin-top: 24px; color: var(--wine); }
+.letter-keepsake { position: relative; min-width: 0; isolation: isolate; }
+.letter-keepsake::before,
+.letter-keepsake::after {
+  content: '';
+  position: absolute;
+  inset: 8px -7px;
+  z-index: -1;
+  pointer-events: none;
+}
+.letter-keepsake::before { background: #ddbbb0; transform: rotate(-6deg); box-shadow: 0 16px 24px -12px #7a403b45; }
+.letter-keepsake::after { inset: 22px 0 -9px 14px; background: linear-gradient(125deg, #923b4a, #6b2937); transform: rotate(4deg); z-index: -2; }
+.letter-paper {
+  position: relative;
+  min-height: 590px;
+  padding: 44px 49px 32px;
+  margin: 0;
+  max-width: none;
+  background: repeating-linear-gradient(0deg, transparent 0 3px, #c8ad8e0a 3px 4px), #fffbf2;
+  border: 1px solid #e7dac8;
+  transform: rotate(-2deg);
+  box-shadow: 0 24px 40px -22px #5b302c88, 0 3px 8px #76504113;
+  transition: transform .65s var(--ease), box-shadow .65s var(--ease);
+}
+.letter-keepsake:hover .letter-paper { transform: rotate(0); box-shadow: 0 28px 50px -22px #5b302c77; }
+.letter-paper::after { inset: 17px; opacity: 1; border: 1px solid #c79c8eaa; background: none; border-radius: 22px 2px 22px 2px; }
+.letter-paper > * { position: relative; z-index: 1; }
+.letter-paper .letter-seal {
+  position: absolute;
+  top: 26px;
+  right: 24px;
+  width: 68px;
+  height: 68px;
+  border-radius: 47% 51% 48% 52%;
+  display: grid;
+  place-items: center;
+  color: #f0c8b8;
+  background: radial-gradient(circle at 35% 24%, #b65a64, #782936 48%, #511923);
+  border: 3px solid #8c3a43;
+  box-shadow: inset 0 1px 3px #fac3b18c, inset 0 -3px 4px #35131caa, 2px 6px 9px #5b26263b;
+  transform: rotate(14deg);
+}
+.letter-seal::before { content: ''; position: absolute; inset: 5px; border: 1px solid #d68b7f80; border-radius: 50%; box-shadow: 0 0 0 1px #521b2580; }
+.letter-seal .icon { width: 31px; height: 31px; stroke-width: 1; }
+.letter-paper-heading { text-align: center; margin: 6px 54px 29px 0; color: var(--wine); }
+.letter-paper-heading > span { font-family: var(--sans); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; }
+.letter-paper-heading > div { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 14px auto 0; max-width: 145px; color: #b47b6d; font-size: 15px; }
+.letter-paper-heading i { height: 1px; background: #c79c8e; flex: 1; }
+.letter-greeting { font-size: 59px; line-height: 1.1; margin: 25px 0 20px; }
+.letter-body { font-size: clamp(22px, 1.8vw, 27px); line-height: 1.55; }
+.letter-signature { margin-top: 30px; font-size: 21px; gap: 2px; }
+.letter-signature .handwritten { font-size: 40px; }
+.letter-postscript { display: flex; align-items: center; gap: 12px; margin-top: 35px; color: #8e504c; }
+.letter-postscript .icon { width: 24px; height: 24px; stroke-width: 1; }
+.letter-postscript > span { font-family: var(--sans); font-size: 10px; letter-spacing: 2.5px; }
+@media (max-width: 1150px) {
+  .letter-layout { gap: 45px; padding: 54px 38px; grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); }
+  .letter-intro h2 { font-size: 70px; }
+  .letter-intro > p { font-size: 21px; }
+  .letter-intro > .letter-caption { font-size: 28px; }
+  .letter-paper { padding: 38px 32px 30px; min-height: 570px; }
+  .letter-greeting { font-size: 50px; }
+  .letter-paper .letter-seal { width: 58px; height: 58px; top: 22px; right: 20px; }
+  .letter-paper-heading { margin-right: 44px; }
+}
+@media (max-width: 850px) {
+  .letter-layout { display: block; padding: 46px 34px 54px; }
+  .letter-intro { text-align: center; margin: 0 auto 48px; }
+  .letter-intro h2 { font-size: 64px; }
+  .letter-intro h2 br:first-of-type { display: none; }
+  .letter-intro > p { margin-top: 18px; }
+  .letter-flourish { margin: 23px auto 0; max-width: 240px; }
+  .letter-intro > .letter-caption { font-size: 29px; margin-top: 14px; }
+  .letter-keepsake { max-width: 520px; margin-inline: auto; }
+  .letter-paper { min-height: 0; padding: 40px 38px 30px; }
+  .letter-body { font-size: 24px; }
+}
+@media (max-width: 480px) {
+  .letter-layout { width: calc(100% - 34px); padding: 38px 19px 42px; }
+  .letter-intro h2 { font-size: clamp(43px, 11.8vw, 56px); letter-spacing: -1.6px; }
+  .letter-intro > p { font-size: 20px; letter-spacing: 0; }
+  .letter-intro > .letter-caption { font-size: 26px; }
+  .letter-keepsake::before { inset: 8px 0; transform: rotate(-4deg); }
+  .letter-keepsake::after { inset: 18px 4px -7px 6px; transform: rotate(3deg); }
+  .letter-paper { transform: rotate(-1deg); padding: 28px 25px 25px; }
+  .letter-paper::after { inset: 10px; border-radius: 15px 2px 15px 2px; }
+  .letter-paper .letter-seal { width: 47px; height: 47px; top: 20px; right: 16px; border-width: 2px; }
+  .letter-seal .icon { width: 24px; height: 24px; }
+  .letter-paper-heading { margin: 5px 38px 23px 0; }
+  .letter-paper-heading > span { font-size: 9px; letter-spacing: 1.5px; }
+  .letter-paper-heading > div { max-width: 100px; }
+  .letter-greeting { font-size: 45px; margin: 26px 0 17px; }
+  .letter-body { font-size: 22px; line-height: 1.5; }
+  .letter-signature { font-size: 19px; margin-top: 24px; }
+  .letter-signature .handwritten { font-size: 34px; }
+  .letter-postscript { gap: 9px; margin-top: 27px; }
+  .letter-postscript > span { font-size: 9px; letter-spacing: 1.8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .letter-paper { transition: none; }
+  .letter-keepsake:hover .letter-paper { transform: rotate(-2deg); }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "yours-always",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A little corner of the universe, made just for you.",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node --check src/main.js && node --check src/gallery.js && node --check src/proposal.js && node --check src/effects.js && node --check src/music.js && node --check src/song-player.js && node --check src/content.js && node --check scripts/serve.mjs && node --check scripts/build.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
