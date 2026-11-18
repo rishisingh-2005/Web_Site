@@ -10,7 +10,7 @@ export function setupProposal(proposal) {
   const answer = find('proposal-answer');
   const title = find('proposal-answer-title');
   const celebration = createCelebration(find('proposal-confetti'));
-  const autoYesAfterNoClicks = 15;
+  const autoYesAfterNoClicks = 12;
   let noClicks = 0;
 
   find('proposal-title').textContent = proposal.question;
@@ -40,9 +40,12 @@ export function setupProposal(proposal) {
       acceptYes();
       return;
     }
-    // Width stays within the screen; height keeps increasing on every click.
-    yes.style.width = `${120 + noClicks * 32}px`;
-    yes.style.minHeight = `${58 + noClicks * 12}px`;
+    // Keep both choices usable without overflowing narrow screens.
+    const noScale = 1 / (1 + noClicks * 1.5);
+    const noWidth = 44 + 56 * noScale;
+    const availableYesWidth = Math.max(112, choices.clientWidth - noWidth - 24);
+    yes.style.width = `${Math.min(120 + noClicks * 32, availableYesWidth, 220)}px`;
+    yes.style.minHeight = `${Math.min(58 + noClicks * 12, 94)}px`;
     yes.style.fontSize = `${Math.min(24 + noClicks * 4, 64)}px`;
     // Shrink on every click, approaching a readable 44px touch target.
     no.style.setProperty('--no-size', String(1 / (1 + noClicks * 1.5)));

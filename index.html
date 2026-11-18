@@ -150,12 +150,14 @@
       <button type="button" class="button button-primary" id="more-love">A little more love <svg class="icon"><use href="#icon-heart"/></svg></button>
     </dialog>
     <aside id="song-panel" class="song-panel" aria-labelledby="song-title" hidden>
-      <button id="song-close" class="icon-button song-close" type="button" aria-label="Close music player and stop playback"><svg class="icon"><use href="#icon-close"/></svg></button>
+      <button id="song-close" class="icon-button song-close" type="button" aria-label="Hide music player; playback continues"><svg class="icon"><use href="#icon-close"/></svg></button>
       <p class="handwritten song-dedication">a soundtrack for us</p>
       <h2 id="song-title"></h2><p id="song-artist" class="song-artist"></p>
+      <button id="song-play" class="button button-primary song-play" type="button" aria-pressed="false" disabled>Play song</button>
       <div id="song-embed" class="song-embed"></div>
+      <p id="song-player-status" class="song-player-status" role="status" aria-live="polite"></p>
       <a id="song-external" class="song-external" target="_blank" rel="noopener noreferrer">Open in Spotify ↗</a>
-      <p class="song-note">Press play in the player. Availability and playback are provided by Spotify.</p>
+      <p class="song-note">Close this panel to keep listening while you browse. Playback availability is provided by Spotify.</p>
     </aside>
     <div id="status-message" class="sr-only" role="status" aria-live="polite"></div>
     <noscript><p class="noscript">This little gift needs JavaScript for the photos, love notes, music, and surprises. Please enable it to open everything.</p></noscript>
